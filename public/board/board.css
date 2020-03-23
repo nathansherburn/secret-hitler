@@ -1,0 +1,17 @@
+.liberal-track, .fascist-track {
+  display: flex;
+  justify-content: center;
+
+}
+
+.policy-placeholder {
+  border: 1px solid black;
+  min-width: 120px;
+  min-height: 180px;
+  margin: 8px;
+  background-color: blanchedalmond;
+}
+
+.election-tracker {
+  
+}

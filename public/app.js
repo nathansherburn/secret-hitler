@@ -1,3 +1,4 @@
+// Global
 class App {
   constructor() {
     window.addEventListener("popstate", event => {
@@ -9,14 +10,26 @@ class App {
   setRoute(route, replaceState) {
     route = route.replace(/\/$/, "");
     this.route = ROUTES[route] || ROUTES["/"];
-    $("body").load(this.route.template, () => {
-      window.history[replaceState ? "replaceState" : "pushState"](
-        this.route,
-        this.route.name,
-        this.route.path
-      );
-      new CONTROLLERS[this.route.controller]();
-    });
+    fetch(this.route.template)
+      .then(response => response.text())
+      .then(body => {
+        // Template
+        document.querySelector("body").innerHTML = body;
+        // Style
+        let link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = this.route.style;
+        document.getElementsByTagName("head")[0].appendChild(link);
+        // Controller
+        new CONTROLLERS[this.route.controller]();
+        // History
+        window.history[replaceState ? "replaceState" : "pushState"](
+          this.route,
+          this.route.name,
+          this.route.path
+        );
+      });
   }
 
   getRoute() {
