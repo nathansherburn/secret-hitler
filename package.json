@@ -1,0 +1,23 @@
+{
+  "name": "secret-hitler",
+  "version": "1.0.0",
+  "description": "A TV based implementation of the card game https://www.secrethitler.com/",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathansherburn/secret-hitler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathansherburn/secret-hitler/issues"
+  },
+  "homepage": "https://github.com/nathansherburn/secret-hitler#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
